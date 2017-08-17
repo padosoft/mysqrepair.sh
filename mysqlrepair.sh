@@ -1,5 +1,7 @@
 #!/bin/bash
+
 ##########################################################################
+# 																		 #
 # Repair Tables MySQL                                                    #
 #                                                                        #
 ##########################################################################
@@ -10,7 +12,19 @@ MYSQLBIN="/usr/bin/mysql"
 TABLES="articoli,  documenti, pagamento"
 REPAIRCMD="REPAIR TABLE $TABLES";
 DATABASENAME="helpdesk";
-###############################################################################
+
+#
+# Load config file if exists
+#
+CONFIG_DIR=$( dirname "$(readlink -f "$0")" )
+CONFIG_FILE="$CONFIG_DIR/mysqlrepair.config"
+
+if [[ -f $CONFIG_FILE ]]; then
+   echo "Loading settings from $CONFIG_FILE."
+   source $CONFIG_FILE
+else
+   echo "Could not load settings from $CONFIG_FILE (file does not exist), script use default settings."
+fi
 
 
 _now=$(date +%Y-%m-%d.%H.%M.%S)

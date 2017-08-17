@@ -1,0 +1,13 @@
+#!/bin/bash
+# local config file template used by mysqlrepair.sh, 
+# USAGE:
+# rename this file mysqlrepair.config and set your vars.
+# mysqlrepair.config is excluded from git
+
+
+DBUSER="admin"
+DBPASS=`cat /etc/psa/.psa.shadow`
+MYSQLBIN="/usr/bin/mysql"
+TABLES="articoli,  documenti, pagamento"
+REPAIRCMD="REPAIR TABLE $TABLES";
+DATABASENAME="helpdesk";
