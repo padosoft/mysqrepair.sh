@@ -28,15 +28,26 @@ This package can be installed easy.
 
 ``` bash
 cd /root/myscript
-git clone https://github.com/padosoft/mysqlrepair.sh.git
-cd mysqlrepair.sh
+git clone https://github.com/padosoft/mysqrepair.sh.git
+cd mysqrepair.sh
 chmod +x mysqlrepair.sh
 ```
+
+
+If you want to set your value and override default var values create a mysqlbackup.config file by coping the given template mysqlbackup.config.template, 
+open in your favorite editor and make changes:
+
+``` bash
+cp /root/myscript/mysqrepair.sh/mysqlrepair.config.template /root/myscript/mysqrepair.sh/mysqlrepair.config 
+
+nano /root/myscript/mysqlrepair.sh/mysqlrepair.config
+```
+
 
 If you want to run programmatically, add it to cronjobs manually or execute install script:
 
 ``` bash
-cd /root/myscript/mysqlrepair.sh
+cd /root/myscript/mysqrepair.sh/mysqlrepair.sh
 chmod +x install.sh
 bash install.sh
 ```
